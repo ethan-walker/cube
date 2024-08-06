@@ -1,0 +1,94 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+* {
+	font-family: "Figtree", sans-serif;
+	margin: 0;
+}
+body {
+	display: grid;
+	place-content: center;
+}
+.scene {
+	width: 200px;
+	height: 200px;
+	margin: 80px;
+	perspective: 1000px;
+	transform: translateY(-400px);
+}
+.cube {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	transform-style: preserve-3d;
+
+	color: transparent;
+}
+.cube.spin {
+	animation: spinY 3s infinite linear;
+}
+.cube-face {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border: var(--bg, 2px solid black);
+	color: var(--bg, black);
+	
+	line-height: 200px;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	backface-visibility: hidden;
+}
+.cube-face {
+	background-image: var(--bg);
+	background-size: cover;
+	background-position: center;
+}
+.cube-face.front  {
+	transform: rotateY(0deg) translateZ(100px);
+}
+.cube-face.right  {
+	transform: rotateY(90deg) translateZ(100px);
+}
+.cube-face.back   {
+	transform: rotateY(180deg) translateZ(100px);
+}
+.cube-face.left   {
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.cube-face.top    {
+	transform: rotateX(90deg) translateZ(100px);
+}
+.cube-face.bottom {
+	transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spinY {
+	from {
+		transform: rotateY(0deg) translateY(400px);
+	}
+	to {
+		transform: rotateY(360deg)  translateY(400px);
+	}
+}
+
+input[type="file"] {
+	display: none;
+	visibility: hidden;
+}
+
+label:has(input[type="file"]) {
+	background-color: rgba(0 0 0 / .1);
+	border-radius: 5px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 3px 7px;
+
+	&:hover {
+		cursor: pointer;
+		background-color: rgba(0 0 0 / .16);
+	}
+}
