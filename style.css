@@ -11,11 +11,8 @@ body {
 	place-content: center;
 }
 .scene {
-	width: 200px;
-	height: 200px;
-	margin: 80px;
 	perspective: 1000px;
-	transform: translateY(-400px);
+	perspective-origin: center -200%;
 }
 .cube {
 	width: 200px;
@@ -66,11 +63,8 @@ body {
 }
 
 @keyframes spinY {
-	from {
-		transform: rotateY(0deg) translateY(400px);
-	}
 	to {
-		transform: rotateY(360deg)  translateY(400px);
+		transform: rotateY(360deg);
 	}
 }
 
